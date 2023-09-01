@@ -1,0 +1,103 @@
+13594.5029552 packets
+
+1049/448 527 = 0.00233876667402
+
+13594.5029552 packets * 0.00233876667402 s/packe t=  31.7943704615
+31794.37
+
+6.410⁹ bits / (1000 bytes/packet * 8 bits/byte) = 8*10⁶ packets
+64 000 000 000/8 000 000 000 = 
+
+
+
+8*10⁶ packets /(3 Mb/S*8.10^6 bits/MB) =  
+
+PEr packet 1000 Bytes
+Rate= Bytes
+3 Mb --> Bits = 240 000 000 --> Bytes = 30 000 000
+
+1000/30 000 000 = 0,0333 ms
+
+8*10^6 * 0,0333 = 266
+
+
+
+1 MB = 
+
+
+
+Question 2:
+4.68
+Based on answering incorrectly
+Hint: Packet delay is the delay between the source and destination for an individual packet (somehow "half" of the round-trip time) and remember packets are forwarded as soon as possible when they are received by routers!
+
+
+Hint2: The solution is 2*L/R*1000 ! (in ms)
+
+Question 3:
+2.0
+
+Question 4:
+296.30
+Feedback
+Based on answering incorrectly
+Hint1: you need to find first the bottleneck link to obtain the throughput of the connection. Then you need to find how many packets need to be sent, each containing only 900 bytes of the file. Then knowing the number of packets, you can calculate how much data in total needs to be sent. And since you know the throughput of the connection, that gives you the time you need to download the file.
+
+
+Hint2: the answer is F*(10/9)/R1.
+
+
+Question 5:
+235
+Feedback
+Based on answering incorrectly
+Hint1: you need to compute the packet delay with the 3 different servers. 
+There are 6 different transmission delays, for each R you obtain the transmission delay using 103 packet_size_in_bits / (R.106) = (1500*8)/ (1000.R) = 12/R.
+There are 3 different lengths for the links D, D1 = 3*D and D2 = 6*D. The propagation delay is d = D/c = 2000/200 = 10ms for D, d1=3*d for D1 and d2=6*d for D2.
+Now you can compute the delays on the 3 routes:
+
+
+
+.us 12/R0 + 2*12/R + 12/R1 + 6*d
+
+.bz 12/R0 + 2*12/R + 12/R2 + 6*d
+
+.au 12/R0 + 12/R3 + 12/R4 + 8*d
+
+
+Then you need to select the one with lowest latency and multiply by 2 to get the "round-trip time", ie:
+
+
+
+2 * ( 12/R0 + 6*d + min(2*12/R+min(12/R1,12/R2), 12/R3 + 12/R4+2*d) )
+
+
+Hint2: the full formula is 2*( (12/R0+20) + min(40 + 2*12/R + 12/max(R1,R2), 60 + 12/R3 + 12/R4) ).
+
+
+
+Question 6:
+5.88
+Feedback
+Based on answering incorrectly
+Hint: you need to apply the bandwidth allocation in the right order: first check if the capacity of the link could be enough before sharing the capacity between the users.
+
+
+Hint2: you can find the answer by using the following code:
+
+
+t1 = min(r1,rx)
+t2 = r2
+if(t1+t2 > ry): 
+    t1 = min(ry/2,t1)
+    t2 = min(ry/2,t2)
+t3 = r3
+if(t1+t2+t3 > rz) 
+    t1 = min(rz/3,t1)
+return t1
+
+
+Question 7:
+118
+
+
